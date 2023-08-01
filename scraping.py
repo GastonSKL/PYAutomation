@@ -1,4 +1,4 @@
-import requests
+import requests 
 import bs4
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -20,3 +20,20 @@ def extract_news(url):
         cnt += ((str(i+1) + ' :: ' + tag.text + "\n" + '<br>') if tag.text != 'More' else '')
         #print(tag.prettify) #find all('span', attrs={'class':'sistestr}))
         return(cnt)
+    
+
+cnt = extract_news('https://news.vcombinator.com/') ;   
+content += cnt
+content += ('<br>------<br>')
+content += ('<br><br>End of Message')
+
+print('Composing Email...')
+
+
+SERVER = 'smtp.gmail.com'
+PORT = 587
+FROM = 'gastonlskamlec@gmail.com' 
+TO = 'gastonlskamlec@gmail.com'
+PASS = 'Apolo15235506'
+
+msg = MIMEMultipart()
