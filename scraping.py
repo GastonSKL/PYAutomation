@@ -37,3 +37,11 @@ TO = 'gastonlskamlec@gmail.com'
 PASS = 'Apolo15235506'
 
 msg = MIMEMultipart()
+
+msg['Subject'] = "Historias de hackernews!"
+msg['From'] = FROM
+msg['To'] = TO
+
+msg.attach(MIMEText(content, 'html'))
+
+print('Initializing server...')
